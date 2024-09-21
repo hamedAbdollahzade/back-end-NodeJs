@@ -28,3 +28,12 @@ Node.js was initially developed to create fast and scalable applications on the 
 - **Flexibility:** Node.js easily accommodates various types of projects, from developing APIs to building complex web applications.
 
 In summary, Node.js, with its impressive capabilities and numerous advantages, has become one of the popular platforms for web development and server-side applications.
+<br>
+<br>
+![Screenshot 2024-09-21 130110](https://github.com/user-attachments/assets/d72ae129-259c-41f9-83a4-2c8691eaa248)
+<br>
+<br>
+![Screenshot 2024-09-21 130604](https://github.com/user-attachments/assets/6992a845-1f51-40a3-a3d8-dec0e1088ba0)
+<br>
+<br>
+
