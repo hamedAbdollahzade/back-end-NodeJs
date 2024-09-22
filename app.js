@@ -1,4 +1,4 @@
-const log = require("./logger");
+const path = require("node:path");
 
-
-log("hamed")
+const data = path.parse(__filename);
+console.log(data);
