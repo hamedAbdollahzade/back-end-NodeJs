@@ -12,10 +12,19 @@ const fs = require("node:fs");
 // const files = fs.readdirSync("./");
 // console.log(files);
 //! Async
-const files = fs.readdir("./", (err, files) => {
-  if (err) {
-    console.log("Error ==>", err);
-  } else console.log(files);
+// const files = fs.readdir("./", (err, files) => {
+//   if (err) {
+//     console.log("Error ==>", err);
+//   } else console.log(files);
+// });
+// console.log(files);
+// ------------------------------------------
+const EventEmitter = require("node:events");
+const emitter = new EventEmitter();
+// اول این نوشته میشه
+emitter.on("MessageLogged", () => {
+  console.log("Listener called");
 });
-console.log(files);
+// بعد اینجا زنگوله به صدا در میاد
+emitter.emit("MessageLogged");
 // ------------------------------------------
