@@ -22,9 +22,9 @@ const fs = require("node:fs");
 const EventEmitter = require("node:events");
 const emitter = new EventEmitter();
 // اول این نوشته میشه
-emitter.on("MessageLogged", () => {
-  console.log("Listener called");
+emitter.on("MessageLogged", (data) => {
+  console.log("Listener called", data);
 });
 // بعد اینجا زنگوله به صدا در میاد
-emitter.emit("MessageLogged");
+emitter.emit("MessageLogged", { id: 1, name: "Hamed-AB" });
 // ------------------------------------------
