@@ -8,6 +8,14 @@
 // console.log("free ===>", free, "Total ===>", total);
 // ------------------------------------
 const fs = require("node:fs");
-const files = fs.readdirSync("./");
+//! Sync
+// const files = fs.readdirSync("./");
+// console.log(files);
+//! Async
+const files = fs.readdir("./", (err, files) => {
+  if (err) {
+    console.log("Error ==>", err);
+  } else console.log(files);
+});
 console.log(files);
 // ------------------------------------------
