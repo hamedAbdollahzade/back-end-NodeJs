@@ -1,7 +1,7 @@
 {
   "name": "node",
   "version": "1.0.0",
-  "description": "Node.js is a platform based on the JavaScript programming language, designed for building server-side applications. It was introduced by Ryan Dahl in 2009 and is built on Google's V8 engine, which executes JavaScript in the Chrome browser.",
+  "description": "Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env. Storing configuration in the environment separate from code is based on The Twelve-Factor App methodology.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -10,6 +10,7 @@
   "author": "HamedAbdollahzade",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.4.5",
     "express": "^4.21.0"
   }
 }
