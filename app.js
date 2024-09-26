@@ -34,8 +34,14 @@ app.use(express.urlencoded({ extended: true }));
 // اینم یک میدلور بیلت این ک میذاره فایل های استاتیک ما نمایش داده بشن
 app.use(express.static("public"));
 
+// با این دستور میتونیم بفهمیم تو چه محیطی هستیم
+console.log(app.get("env")); // ==> development
+
+// حالا میتونیم شرط بذاریم ک مورگان تو پروداکشن اجرا نشه و فقط تو حالت دولوپمنت اجرا بشه
 // این مرگان واسه اینه هر ریکوئستی زده میشه ی لاگ میندازه برامون
-app.use(morgan("tiny"));
+if (app.get("env") === "development") {
+  app.use(morgan("tiny"));
+}
 
 // !-----Create--Custom-Middleware------------------------
 // برای نوشتن کاستوم میدلور
