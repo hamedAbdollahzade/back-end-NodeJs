@@ -29,7 +29,7 @@ app.get("/api/customers/:id", (req, res) => {
   if (customer) {
     res.send(customer);
   } else {
-    res.send("Not Found");
+    res.status(404).send("Not Found");
   }
 });
 
@@ -37,7 +37,7 @@ app.post("/api/customers/", (req, res) => {
   const { name } = req.body;
 
   if (!name || name.length < 3)
-    return res.send({ success: false, message: "Name Not Valid" });
+    return res.status(400).send({ success: false, message: "Name Not Valid" });
 
   const customer = { id: customers.length + 1, name };
   customers.push(customer);
