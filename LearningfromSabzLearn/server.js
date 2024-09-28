@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
   res.send("Salam Express");
 });
 
-const customers = [
+let customers = [
   { id: 1, name: "hamed" },
   { id: 2, name: "saeed" },
 ];
@@ -35,7 +35,7 @@ app.get("/api/customers/:id", (req, res) => {
 });
 
 app.post("/api/customers/", (req, res) => {
-  // Use joi To Validate req.body
+  // Use joi To Inpute Validate :
   const schema = joi.object({ name: joi.string().min(2).max(10).required() });
   const { error } = schema.validate(req.body);
   if (error) return res.status(400).send({ message: error.message });
@@ -50,4 +50,33 @@ app.post("/api/customers/", (req, res) => {
   const customer = { id: customers.length + 1, name };
   customers.push(customer);
   res.send(customers);
+});
+
+app.put("/api/customers/:customerId", (req, res) => {
+  // Use joi To Inpute Validate :
+  const schema = joi.object({
+    name: joi.string().min(2).max(10).required(),
+    customerId: joi.number().required(),
+  });
+  const { error } = schema.validate({
+    ...req.body,
+    customerId: parseInt(req.params.customerId),
+  });
+  if (error) return res.status(400).send({ message: error.message });
+  else {
+    const index = customers.findIndex(
+      (item) => item.id === parseInt(req.params.customerId)
+    );
+    if (index === -1) return res.status(404).send({ message: "Not Found" });
+
+    customers[index].name = req.body.name;
+    res.send(customers);
+  }
+});
+
+app.delete("/api/customers/:customerId", (req, res) => {
+  customers = customers.filter(
+    (item) => item.id !== parseInt(req.params.customerId)
+  );
+  res.status(200).send();
 });
