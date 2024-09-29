@@ -5,6 +5,19 @@ const joi = require("joi");
 
 app.use(express.json());
 
+// My Middleware :
+app.use((req, res, next) => {
+  console.log("Middleware Log ...");
+  next();
+});
+
+app.use((req, res, next) => {
+  if (req.query.name == "hamed") {
+    return res.send("salam hamed ");
+  }
+  next();
+});
+
 const port = process.env.PORT || 3000;
 app.listen(port, (err) =>
   err ? console.log(err) : console.log(`server is runnig in port ${port}`)
