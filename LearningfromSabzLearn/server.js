@@ -5,6 +5,11 @@ const joi = require("joi");
 
 app.use(express.json());
 
+// express.static: این متد تابعی از Express.js است که به سرور اجازه می‌دهد فایل‌های استاتیک را به‌راحتی از یک مسیر معین در سیستم فایل پاسخ دهد.
+// http://localhost:3010/test.txt
+//  به عنوان مثال اگه این مدیلور نباشه با درخواست کاربر به این ادرس میزنه Cannot GET /test.txt
+app.use(express.static("public"));
+
 // My Middleware :
 app.use((req, res, next) => {
   console.log("Middleware Log ...");
